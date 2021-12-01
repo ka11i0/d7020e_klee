@@ -96,12 +96,13 @@ mod ll {
 // Now we can run KLEE on the generate LLVM-IR.
 // (KLEE can read both `.bc` and `.ll` files, `.ll` files are human readable.)
 //
-// > klee target/debug/examples/get_sign-85c57be6132dac1d.ll
+// > klee --disable-verify target/debug/examples/get_sign-85c57be6132dac1d.ll
 // KLEE: output directory is "/home/pln/courses/d7020e/klee_tutorial/target/debug/examples/klee-out-0"
 // KLEE: Using Z3 solver backend
 //
-// KLEE: done: total instructions = 92
+// KLEE: done: total instructions = 89
 // KLEE: done: completed paths = 3
+// KLEE: done: partially completed paths = 0
 // KLEE: done: generated tests = 3
 //
 // (You need to give the right hash for the `.ll` file.)
@@ -139,7 +140,7 @@ mod ll {
 //
 // Now we need to link it with the `libkleeRuntest`.
 //
-// > clang get_sign-85c57be6132dac1d.o -l kleeRuntest -o a.out
+// > clang get_sign-85c57be6132dac1d.o --rtlib=compiler-rt -l kleeRuntest -o a.out
 //
 // (See `get_sign.c` for linking options if you don't have KLEE libs in default location.)
 //
