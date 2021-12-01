@@ -171,7 +171,7 @@ Here you learn:
       - KLEE API `klee_make_symbolic` binds to inline assembly breakpoint. This allows a debugger to catch the halted CPU and insert test case to location of symbolic object. Other KLEE API binds to Rust `panic!`.
 
 - `cargo-klee`: `cargo` sub-command.
-  - version: 0.3.0
+  - version: 0.4.0
   - git: `https://gitlab.henriktjader.com/pln/cargo-klee`
 
 - `panic_klee`: Binds panic handler to external `abort`
