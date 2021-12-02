@@ -32,8 +32,8 @@ fn main() {
     let mut arr = [4u8; 8];
     klee_make_symbolic!(&mut arr, "arr");
     for v in arr {
-        // klee_assume(v < 11 && v > 3);
-        klee_assume((v < 11 as u8) & (v > 3 as u8));
+        klee_assume(v < 10);
+        // klee_assume(v > 3);
     }
     let mut i: usize = 0;
     klee_make_symbolic!(&mut i, "i");
@@ -84,6 +84,7 @@ fn main() {
 //
 // C)
 // Now extend the assumption with an additional constraint, v > 3.
+// (Uncomment the corresponding line of code.)
 //
 // Compute by hand the corresponding minimum value that the `sum_first_elements`
 // will produce.
@@ -144,8 +145,11 @@ fn main() {
 //
 //  invalid klee_assume call (provably false)
 //
-// You can safely ignore this error (there is even a KLEE flag for suppressing such errors).
+// You can typically ignore such errors (there is even a KLEE flag for suppressing them).
 // (Run `klee --help` to see if you can find the flag.)
+//
+// In this example we separated the assumptions so the problem did not occur in the first
+// place.
 //
 // Describe in your own words how you think verifiable contracts can help to create
 // more robust and reliable systems.
