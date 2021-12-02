@@ -20,6 +20,7 @@ int main()
 {
     int a;
     klee_make_symbolic(&a, sizeof(a), "a");
+    int b = 1000 / (a + 5);
     return get_sign(a);
 }
 
@@ -77,7 +78,7 @@ int main()
 // > clang -I /usr/local/include/ -L /usr/local/lib get_sign.c -l kleeRuntest
 //
 // Or just
-// > clang get_sign -l kleeRuntest
+// > clang get_sign.c -l kleeRuntest
 //
 // If the `include` and `lib` paths are the system defaults.
 //
