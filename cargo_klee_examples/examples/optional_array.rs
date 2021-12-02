@@ -29,7 +29,7 @@ fn sum_first_elements(arr: &[u8], index: usize) -> u8 {
 
 #[no_mangle]
 fn main() {
-    let mut arr = [4u8; 8];
+    let mut arr = [0u8; 8];
     klee_make_symbolic!(&mut arr, "arr");
     for v in arr {
         klee_assume(v < 10);
