@@ -44,18 +44,20 @@ fn main() {
 // and return the sum of the whole array if index larger than size/length).
 // The fix should be in the function (not on the caller side).
 //
-// [Git commit "B"]
+// [Git commit "Array B"]
 //
 // C) In the example, the array is holding only zeroes.
 // Figure out a way to make the content symbolic.
 // Hints: declare as mutable, you can set the whole array symbolic.
 //
-// [Git commit "C"]
+// [Git commit "Array C"]
 //
 // D) Analyze the example using KLEE. Now a new (maybe unexpected) error should occur!
 // Notice, the error occurs only in `debug/dev` builds.
 //
 // Explain what caused the error.
+//
+// [Git commit "Array D"]
 //
 // [your answer here]
 //
@@ -64,7 +66,7 @@ fn main() {
 //
 // [your answer here]
 //
-// [Git commit "D"]
+// [Git commit "Array E"]
 //
 // F) Learning outcome.
 // In this small exercise we have used KLEE to find errors in our code.
@@ -78,3 +80,5 @@ fn main() {
 // Describe in your own words how that improves robustness and reliability.
 //
 // [your answer here]
+//
+// [Git commit "Array F"]
