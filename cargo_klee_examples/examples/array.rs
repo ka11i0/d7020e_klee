@@ -82,7 +82,7 @@ fn main() {
 // E) Make a sensible fix to the code.
 // Motivate your choice.
 //
-// [your answer here]
+// Answer: Typecast to u16 fixes the wraparound.
 //
 // [Git commit "Array E"]
 //
