@@ -21,9 +21,10 @@ fn sum_first_elements(arr: &[u8], index: usize) -> u8 {
 
 #[no_mangle]
 fn main() {
-    let arr = [0u8; 8];
+    let mut arr = [0u8; 8];
     let mut i: usize = 0;
     klee_make_symbolic!(&mut i, "i");
+    klee_make_symbolic!(&mut arr, "arr");
     let b = sum_first_elements(&arr, i);
 }
 
