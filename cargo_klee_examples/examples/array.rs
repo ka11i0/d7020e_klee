@@ -11,6 +11,9 @@ use panic_klee as _;
 fn sum_first_elements(arr: &[u8], index: usize) -> u8 {
     let mut acc = 0;
     for i in 0..index {
+        if i>arr.len()-1 {
+            break;
+        }
         acc += arr[i as usize];
     }
     acc
@@ -33,11 +36,25 @@ fn main() {
 //
 // Compare the test generated in release `--release` (optimized) to
 // test generated in debug/dev mode (un-optimized).
+// DEBUG:
+// KLEE: done: total instructions = 4323
+// KLEE: done: completed paths = 9
+// KLEE: done: partially completed paths = 1
+// KLEE: done: generated tests = 10
+// 
+// RELEASE:
+// KLEE: done: total instructions = 34
+// KLEE: done: completed paths = 1
+// KLEE: done: partially completed paths = 1
+// KLEE: done: generated tests = 2
 //
 // Try to explain in your own words the difference and why?
 // (Hint, even if we don't use the result `b`, Rust do not optimize out the call, why?)
 //
-// [your answer here]
+// Answer: Less instructions in release mode because of optimization.
+// Completed paths - My guess is that optimization "removes" the summation because the answer will be 0 for all cases of i.
+// Partially completed paths = 1 because of same abort failure.
+// Generated tests = completed paths + partially completed paths.
 //
 // B) Fix the code so that you don't get an error.
 // (It should still compute the sum of the n first elements

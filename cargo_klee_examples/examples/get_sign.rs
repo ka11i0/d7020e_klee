@@ -53,11 +53,12 @@ fn main() {
 //
 // Now locate the generated tests. Give the relative path to `klee-last`.
 //
-// [your answer here]
+// Answer: cargo_klee_examples/target/debug/examples/klee-last
 //
 // B) Replay test cases
 //
 // By giving the `-r` (or `--replay`), you can easily replay the test cases:
+// > export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 //
 // > cargo klee -v -r -g --example get_sign
 //
@@ -67,7 +68,7 @@ fn main() {
 //
 // What path of the program does this path trigger?
 //
-// [your answer here]
+// Answer: else
 //
 // Just out of curiosity, you may test the other test cases as well...
 //
@@ -77,11 +78,11 @@ fn main() {
 //
 // How does `klee-sys` and `cargo-klee` score on a 0..5 scale?
 //
-// [your answer here]
+// Answer: 5
 //
 // If below 5, what could be done to improve the UX/IX?
 //
-// [your answer here]
+// - 
 //
 // C) Inner workings.
 //
