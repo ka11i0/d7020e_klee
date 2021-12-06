@@ -8,13 +8,13 @@
 use klee_sys::klee_make_symbolic;
 use panic_klee as _;
 
-fn sum_first_elements(arr: &[u8], index: usize) -> u8 {
+fn sum_first_elements(arr: &[u8], index: usize) -> u16 {
     let mut acc = 0;
     for i in 0..index {
         if i>arr.len()-1 {
             break;
         }
-        acc += arr[i as usize];
+        acc += arr[i as usize] as u16;
     }
     acc
 }
@@ -77,7 +77,7 @@ fn main() {
 //
 // [Git commit "Array D"]
 //
-// [your answer here]
+// Answer: Return of u8 can "overflow" in release mode, but debug mode will hinder that.
 //
 // E) Make a sensible fix to the code.
 // Motivate your choice.
