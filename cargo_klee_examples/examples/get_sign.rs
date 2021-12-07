@@ -93,7 +93,7 @@ fn main() {
 // Follow the `klee-analysis` feature.
 // What is the impact of `klee-analysis`?
 //
-// [your answer here]
+// Answer: ? The impact is that we have an analysis tool.
 //
 // Have a look at the source code of `cargo klee`.
 // (The actual sub-command is in the folder `cargo-klee`.)
@@ -102,7 +102,7 @@ fn main() {
 // Try to figure out how the correct `.ll` file is determined.
 // Which one will it pick, and why?
 //
-// [your answer here]
+// Answer: Takes the last edited file.
 //
 // Actually this is one of the "bad seeds" in the internal design.
 // Seems there is no "stable" way of controlling/retrieving the "metadata"

@@ -97,6 +97,7 @@ fn main() {
 //
 // Describe in your own words how that improves robustness and reliability.
 //
-// [your answer here]
+// Answer: Less errors leads to less bad outcome(crashes, etc),
+// which in turn means that we have a more robust and reliable system.
 //
 // [Git commit "Array F"]
