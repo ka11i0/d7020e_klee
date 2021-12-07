@@ -109,14 +109,14 @@ mod ll {
 //
 // What was the generated hash.
 //
-// [your answer here]
+// get_sign-"6b817713ffcd8113".ll
 //
 // B) Inspecting the test cases.
 //
 // Figure out to run `ktest-tool` on the generated test cases.
 // (Hint, it is just a matter of paths.)
-//
-// [your answer here]
+//  
+// ktest-tool target/debug/examples/klee-last/test00000X.ktest
 //
 // C) Replaying your test cases.
 //
@@ -136,11 +136,11 @@ mod ll {
 //
 // > ls *.o
 //
-// [your answer here]
+// Answer: YES
 //
 // Now we need to link it with the `libkleeRuntest`.
 //
-// > clang get_sign-85c57be6132dac1d.o --rtlib=compiler-rt -l kleeRuntest -o a.out
+// > clang get_sign-6b817713ffcd8113.o --rtlib=compiler-rt -l kleeRuntest -o a.out
 //
 // (See `get_sign.c` for linking options if you don't have KLEE libs in default location.)
 //
@@ -154,15 +154,15 @@ mod ll {
 //
 // Now run the code in the debugger. What path was triggered.
 //
-// [your answer here]
+// Answer: else
 //
 // Change to test000002, what path does it trigger.
 //
-// [your answer here]
+// Answer: x<0
 //
 // And finally change to test000003, what path was triggered.
 //
-// [your answer here]
+// Answer: x==0
 //
 // D) Remarks and conclusions.
 //

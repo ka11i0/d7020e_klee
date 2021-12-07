@@ -31,13 +31,13 @@ int main()
 //
 // > klee get_sign.bc
 //
-// [your answer here]
+// Answer: Divide by zero error caught!
 //
 // B) Inspecting the output
 //
 // > ls klee-last/
 //
-// [your answer here]
+// Answer: assembly.ll  info  messages.txt  run.istats  run.stats  test000001.div.err ...
 //
 // C) Inspecting the generated test cases
 //
@@ -45,18 +45,19 @@ int main()
 //
 // What path in the code does this test represent?
 //
-// [your answer here]
+// Answer: It represents the path which generates the divide by zero.
 //
 // > ktest-tool klee-last/test000002.ktest
 //
 // What path in the code does this test represent?
 //
-// [your answer here]
+// Answer: The path where get_sign reaches the else condition
+//
 // > ktest-tool klee-last/test000003.ktest
 //
 // What path in the code does this test represent?
 //
-// [your answer here]
+// Answer: The path where get_sign reaches the if(x==0) condition
 //
 // D) Replaying a test case
 //
@@ -109,7 +110,7 @@ int main()
 //
 // Did the result correspond to the expected path for the test?
 //
-// [your answer here]
+// Answer: Output = 136 = 10001000 = -120 signed? doesn't really make sense
 //
 // > KTEST_FILE=klee-last/test000002.ktest ./a.out
 //
@@ -117,7 +118,7 @@ int main()
 //
 // Did the result correspond to the expected path for the test?
 //
-// [your answer here]
+// Answer: Output = 1, yes makes sense, 1 takes the execution to else.
 //
 // > KTEST_FILE=klee-last/test000003.ktest ./a.out
 //
@@ -125,11 +126,11 @@ int main()
 //
 // Did the result correspond to the expected path for the test?
 //
-// [your answer here]
+// Answer: Output = 0, which is the correct path.
 //
 // Why not? Confer to shell error codes:
 //
-// [your answer here]
+// Answer: ... assumingly this is for test000001.ktest it could be because divby0 is undefined and KLEE might just put something there.
 //
 // D) Debugging
 //
@@ -153,14 +154,14 @@ int main()
 //
 // What value do you get, and why?
 //
-// [your answer here]
+// Answer: Not possible because "Program terminated with signal SIGFPE", print a gives -5.
 //
 // Step the code
 // > (gdb) next
 //
 // What path did it take, and why?
 //
-// [your answer here]
+// "Program terminated with signal SIGFPE" path for div by 0. -5
 //
 // Now we can try with another test:
 //
@@ -173,7 +174,7 @@ int main()
 //
 // Which path did it take, and why?
 //
-// [your answer here]
+// Answer: (x<0), because x = 1000000000000000000000000000000
 //
 // And finally:
 //
@@ -181,7 +182,7 @@ int main()
 //
 // Which path did it take, and why?
 //
-// [your answer here]
+// Answer: (x==0), because x = 0
 //
 // E) Under the hood.
 //
@@ -189,13 +190,15 @@ int main()
 // `klee_make_symbolic(&a, sizeof(a), "a");`
 // works when you run `klee` to generate test cases:
 //
-// [your answer here]
+// Answer: It tells klee what part in memory to treat as symbolic by giving the address &a and size of 
 // (hint, mark memory region as symbolic)
 //
 // Explain in your own words how
 // `klee_make_symbolic(&a, sizeof(a), "a");`
 // works when you replay test cases:
 //
-// [your answer here]
+// Answer: When we replay we use the .ktest files which contains 
+// information about the symbolic variables for the different cases
+// made by `klee_make_symbolic(&a, sizeof(a), "a");`
 // (hint, KTEST_FILE points to a concrete assignment
 // of the memory region)
